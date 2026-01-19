@@ -1,4 +1,16 @@
 {
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "9L2W3USK8X.com.jrmoynihan99.anchor",
+        "paths": [
+          "/join",
+          "/join/*"
+        ]
+      }
+    ]
+  },
   "appclips": {
     "apps": [
       "9L2W3USK8X.com.jrmoynihan99.anchor.Clip"
