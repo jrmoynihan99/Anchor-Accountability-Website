@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,13 +22,24 @@ export default function Home() {
             Site under construction...
           </p>
 
-          {/* Admin link */}
-          <a
-            href="https://admin.anchoraccountability.com"
-            className="mt-2 inline-flex items-center justify-center rounded-full bg-white/90 px-6 py-3 text-sm font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white"
-          >
-            Go to Admin
-          </a>
+          {/* Action buttons */}
+          <div className="mt-4 flex w-full max-w-sm flex-col gap-3 sm:flex-row sm:justify-center">
+            {/* Primary */}
+            <Link
+              href="/join"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90"
+            >
+              Download
+            </Link>
+
+            {/* Secondary */}
+            <a
+              href="https://admin.anchoraccountability.com"
+              className="inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-white/10"
+            >
+              Go to Admin
+            </a>
+          </div>
         </div>
       </main>
     </div>

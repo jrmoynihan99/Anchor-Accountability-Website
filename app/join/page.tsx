@@ -5,13 +5,15 @@ import { redirect } from "next/navigation";
 export default async function JoinPage({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  // ✅ unwrap async searchParams
+  const params = await searchParams;
+
   const headersList = await headers();
   const userAgent = headersList.get("user-agent") ?? "";
 
-  const org =
-    typeof searchParams.org === "string" ? searchParams.org : "public";
+  const org = typeof params.org === "string" ? params.org : "public";
 
   const isAndroid = /Android/i.test(userAgent);
 
