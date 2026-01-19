@@ -16,7 +16,7 @@ export default async function JoinPage({
 
   if (isAndroid) {
     const playStoreUrl = `https://play.google.com/store/apps/details?id=com.jrmoynihan99.anchor&referrer=org=${encodeURIComponent(
-      org
+      org,
     )}`;
     redirect(playStoreUrl);
   }
@@ -40,17 +40,13 @@ export default async function JoinPage({
 
           <a
             href={`https://play.google.com/store/apps/details?id=com.jrmoynihan99.anchor&referrer=org=${encodeURIComponent(
-              org
+              org,
             )}`}
             className="block w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition"
           >
             Get it on Google Play
           </a>
         </div>
-
-        <p className="text-sm text-gray-500 mt-6">
-          Scan the QR code with your phone to get started
-        </p>
       </div>
     </div>
   );
