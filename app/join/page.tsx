@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -22,18 +23,37 @@ export default async function JoinPage({
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
-      <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Join Anchor</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#CBAD8D] p-4">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <Image
+            src="/icon.png"
+            alt="Anchor logo"
+            width={80}
+            height={80}
+            priority
+            className="rounded-2xl shadow-md"
+          />
 
-        <p className="text-gray-600 mb-6">
-          {org !== "public" ? `Joining ${org}` : "Join the Anchor community"}
+          <h1 className="text-3xl font-bold text-gray-900">
+            Anchor | Quit Porn Together
+          </h1>
+        </div>
+
+        <p className="text-gray-700 mb-6 font-medium">
+          {org !== "public" ? (
+            <>
+              Joining <span className="text-[#CBAD8D] font-bold">{org}</span>
+            </>
+          ) : (
+            "Join the Anchor community"
+          )}
         </p>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           <a
-            href="https://apps.apple.com/app/idYOUR_APP_ID"
-            className="block w-full bg-black text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition"
+            href="https://apps.apple.com/app/anchor-quit-porn-together/id6752869901"
+            className="block w-full bg-black text-white py-3.5 px-6 rounded-xl font-semibold hover:bg-gray-800 transition"
           >
             Download on App Store
           </a>
@@ -42,7 +62,7 @@ export default async function JoinPage({
             href={`https://play.google.com/store/apps/details?id=com.jrmoynihan99.anchor&referrer=org=${encodeURIComponent(
               org,
             )}`}
-            className="block w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition"
+            className="block w-full bg-[#CBAD8D] text-white py-3.5 px-6 rounded-xl font-semibold hover:bg-[#B89D7D] transition"
           >
             Get it on Google Play
           </a>
