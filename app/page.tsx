@@ -16,7 +16,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold text-white">Anchor</h1>
-          <p className="text-xl text-white/90">Quit Porn Together</p>
+          <p className="text-xl text-white/90">Fight Lust Together</p>
 
           <p className="mt-4 text-lg text-white/70">
             Site under construction...
