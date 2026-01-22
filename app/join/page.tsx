@@ -38,7 +38,7 @@ export default async function JoinPage({
           />
 
           <h1 className="text-3xl font-bold text-gray-900">
-            Anchor | Quit Porn Together
+            Anchor | Fight Lust Together
           </h1>
         </div>
 
