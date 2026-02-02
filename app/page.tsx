@@ -18,8 +18,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold text-white">Anchor</h1>
           <p className="text-xl text-white/90">Fight Lust Together</p>
           <p className="mt-4 max-w-md text-lg text-white/70">
-            An accountability app that helps you and your partner stay connected
-            and fight temptation together.
+            An anonymous accountability app that helps you fight temptation.
           </p>
 
           {/* Action buttons */}
