@@ -17,10 +17,10 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold text-white">Anchor</h1>
           <p className="text-xl text-white/90">Fight Lust Together</p>
-
-          <p className="mt-4 text-lg text-white/70">
-            Site under construction...
-          </p>
+          {/*
+          <p className="mt-4 max-w-md text-lg text-white/70">
+            An accountability app that helps you and your partner stay connected and fight temptation together.
+          </p>*/}
 
           {/* Action buttons */}
           <div className="mt-4 flex w-full max-w-sm flex-col gap-3 sm:flex-row sm:justify-center">
@@ -40,6 +40,19 @@ export default function Home() {
               Go to Admin
             </a>
           </div>
+        </div>
+
+        {/* Footer links */}
+        <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-white/60">
+          <Link href="/privacy-policy" className="hover:text-white/90">
+            Privacy Policy
+          </Link>
+          <Link href="/support" className="hover:text-white/90">
+            Support
+          </Link>
+          <Link href="/child-safety" className="hover:text-white/90">
+            Child Safety
+          </Link>
         </div>
       </main>
     </div>
