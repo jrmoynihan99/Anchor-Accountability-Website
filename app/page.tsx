@@ -279,7 +279,7 @@ export default function Home() {
             <MotionReveal direction="up" delay={150}>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <a
-                  href="mailto:jrmoynihan99@gmail.com?subject=Custom Community for My Organization"
+                  href="/community-request"
                   className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
                 >
                   Set Up Your Community
