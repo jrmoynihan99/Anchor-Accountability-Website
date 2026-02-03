@@ -1,14 +1,11 @@
-"use client";
 import { Mail, Trash2 } from "lucide-react";
-import { Background } from "@/components/layout/Background";
 import { HeadshotProgress } from "@/components/ui/HeadshotProgress";
 
 export default function AnchorSupportPage() {
   return (
-    <div className="relative min-h-screen">
-      <Background variant="anchor" />
+    <div className="min-h-screen bg-[#CBAD8D]">
 
-      <div className="relative z-10 max-w-2xl mx-auto px-4 py-16 md:py-24 text-center">
+      <div className="max-w-2xl mx-auto px-4 py-16 md:py-24 text-center">
         {/* Logo/Icon */}
         <div className="mb-8 flex items-center justify-center">
           <HeadshotProgress
