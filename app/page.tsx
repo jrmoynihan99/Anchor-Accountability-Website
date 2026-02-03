@@ -19,8 +19,7 @@ import {
 const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "how-it-works", label: "How It Works" },
-  { id: "features", label: "Features" },
-  { id: "churches", label: "Churches" },
+  { id: "communities", label: "Communities" },
   { id: "faq", label: "FAQ" },
 ];
 
@@ -114,9 +113,7 @@ export default function Home() {
             </MotionReveal>
 
             <MotionReveal direction="up" delay={300}>
-              <p className="mt-4 text-sm text-white/60">
-                Free • iOS & Android • Faith-based
-              </p>
+              <p className="mt-4 text-sm text-white/60">Free • iOS & Android</p>
             </MotionReveal>
           </div>
 
@@ -263,7 +260,7 @@ export default function Home() {
       </section>*/}
 
       {/* For Churches & Communities Section */}
-      <section id="churches" className="px-6 py-20">
+      <section id="communities" className="px-6 py-20">
         <MotionParallax range={25}>
           <div className="mx-auto max-w-3xl text-center">
             <MotionReveal direction="up">
@@ -349,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-white/10 px-6 py-20 text-center">
+      <section className="px-6 py-20 text-center">
         <MotionParallax range={20}>
           <MotionReveal direction="up">
             <h2 className="mb-6 text-3xl md:text-4xl font-bold text-white">
@@ -373,7 +370,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/20 px-6 py-8">
+      <footer className="bg-white/10 border-t border-white/20 px-6 py-8">
         <MotionReveal direction="up">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center text-sm text-white/60">
             <div className="flex flex-wrap justify-center gap-4">
