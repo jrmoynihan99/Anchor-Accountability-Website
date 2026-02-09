@@ -404,7 +404,7 @@ export default function Home() {
             </div>
             <p>Contact: jrmoynihan99@gmail.com</p>
             <p className="text-white/40">
-              © 2025 Anchor Accountability. All rights reserved.
+              © 2026 Anchor Accountability. All rights reserved.
             </p>
           </div>
         </MotionReveal>
