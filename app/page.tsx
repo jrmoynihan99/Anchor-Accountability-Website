@@ -70,7 +70,7 @@ export default function Home() {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => setShowStickyDownload(!entry.isIntersecting),
-      { threshold: 0 }
+      { threshold: 0 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -117,7 +117,10 @@ export default function Home() {
             </MotionReveal>
 
             <MotionReveal direction="up" delay={250}>
-              <div ref={heroCTARef} className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div
+                ref={heroCTARef}
+                className="mt-8 flex flex-col gap-3 sm:flex-row"
+              >
                 <Link
                   href="/join"
                   className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
@@ -411,21 +414,18 @@ export default function Home() {
       <AnimatePresence>
         {showStickyDownload && (
           <motion.div
-            className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-gradient-to-t from-[#CBAD8D] via-[#CBAD8D]/95 to-[#CBAD8D]/0 pt-8"
-            style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 80, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="fixed bottom-2 left-1/2 -translate-x-1/2 z-50 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <div className="px-4">
-              <Link
-                href="/join"
-                className="flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-2xl transition hover:bg-white/90 active:scale-95 w-full"
-              >
-                Download Now
-              </Link>
-            </div>
+            <Link
+              href="/join"
+              className="flex items-center justify-center rounded-full bg-white px-12 py-4 text-base font-semibold text-[#3A2F25] shadow-2xl whitespace-nowrap"
+            >
+              Download Now
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
