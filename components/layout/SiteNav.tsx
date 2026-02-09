@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function SiteNav({
@@ -205,6 +206,29 @@ export function SiteNav({
                       );
                     })}
                   </ul>
+
+                  {/* Download button */}
+                  <motion.div
+                    className="mt-3 px-2 pb-1"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{
+                      delay: 0.15 + sections.length * 0.05,
+                      duration: 0.3,
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 25,
+                    }}
+                  >
+                    <Link
+                      href="/join"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center justify-center rounded-full bg-white px-4 py-3 text-sm font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 active:scale-95"
+                    >
+                      Download Now
+                    </Link>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>

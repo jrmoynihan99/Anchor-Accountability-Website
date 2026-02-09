@@ -1,5 +1,7 @@
 "use client";
+import * as React from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { HeadshotProgress } from "@/components/ui/HeadshotProgress";
 import { PhoneMockup } from "@/components/ui/PhoneMockup";
 import { PhoneStack } from "@/components/ui/PhoneStack";
@@ -60,6 +62,19 @@ const FEATURES = [
 
 export default function Home() {
   const active = useActiveSection(SECTIONS.map((s) => s.id));
+  const heroCTARef = React.useRef<HTMLDivElement>(null);
+  const [showStickyDownload, setShowStickyDownload] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = heroCTARef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyDownload(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="bg-[#CBAD8D] font-sans">
@@ -102,7 +117,7 @@ export default function Home() {
             </MotionReveal>
 
             <MotionReveal direction="up" delay={250}>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div ref={heroCTARef} className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/join"
                   className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
@@ -193,7 +208,7 @@ export default function Home() {
 
                     {/* Content */}
                     <div className="flex-1 text-center lg:text-left">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-xl font-bold text-white mb-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-xl font-bold text-white mb-4 mx-auto lg:mx-0">
                         {step.num}
                       </div>
                       <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
@@ -391,6 +406,26 @@ export default function Home() {
           </div>
         </MotionReveal>
       </footer>
+
+      {/* Sticky mobile download button */}
+      <AnimatePresence>
+        {showStickyDownload && (
+          <motion.div
+            className="fixed bottom-6 left-4 right-4 z-50 md:hidden"
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          >
+            <Link
+              href="/join"
+              className="flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-2xl transition hover:bg-white/90 active:scale-95 w-full"
+            >
+              Download Now
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
