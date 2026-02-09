@@ -411,18 +411,21 @@ export default function Home() {
       <AnimatePresence>
         {showStickyDownload && (
           <motion.div
-            className="fixed bottom-6 left-4 right-4 z-50 md:hidden"
+            className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-gradient-to-t from-[#CBAD8D] via-[#CBAD8D]/95 to-[#CBAD8D]/0 pt-8"
+            style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
-            <Link
-              href="/join"
-              className="flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-2xl transition hover:bg-white/90 active:scale-95 w-full"
-            >
-              Download Now
-            </Link>
+            <div className="px-4">
+              <Link
+                href="/join"
+                className="flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-2xl transition hover:bg-white/90 active:scale-95 w-full"
+              >
+                Download Now
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
