@@ -136,15 +136,24 @@ export default function Home() {
           </div>
 
           {/* Phone mockup - Single on mobile */}
-          <MotionReveal direction="up" delay={200}>
-            <div className="lg:hidden flex-shrink-0 w-[240px]">
-              <PhoneMockup
-                video="/assets/videos/anchor-sos.mp4"
-                poster="/assets/videos/anchor-sos.jpg"
-                alt="Anchor app SOS feature"
-              />
-            </div>
-          </MotionReveal>
+          <motion.div
+            className="lg:hidden flex-shrink-0 w-[240px]"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 18,
+              delay: 0.35,
+            }}
+          >
+            <PhoneMockup
+              video="/assets/videos/anchor-sos.mp4"
+              poster="/assets/videos/anchor-sos.jpg"
+              alt="Anchor app SOS feature"
+            />
+          </motion.div>
 
           {/* Phone mockups - 3-stack on desktop */}
           <PhoneStack />
