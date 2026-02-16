@@ -4,6 +4,13 @@ import { headers } from "next/headers";
 import { DownloadQRCodes } from "./DownloadQRCodes";
 import { RedirectOnMount } from "./RedirectOnMount";
 
+export const metadata = {
+  other: {
+    "apple-itunes-app":
+      "app-id=6752869901, app-clip-bundle-id=com.jrmoynihan99.anchor.Clip, app-clip-display=card",
+  },
+};
+
 const APP_STORE_URL =
   "https://apps.apple.com/us/app/anchor-fight-lust-together/id6752869901";
 
