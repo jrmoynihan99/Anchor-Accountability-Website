@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { MotionReveal } from "@/components/animations/MotionReveal";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { CheckCircle } from "lucide-react";
@@ -112,6 +113,12 @@ export default function CommunityRequest() {
               </div>
             </MotionReveal>
           )}
+          <Link
+            href="/"
+            className="mt-8 inline-flex items-center justify-center rounded-full bg-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/30 transition"
+          >
+            &larr; Back to home
+          </Link>
         </div>
       </section>
     </div>
