@@ -44,7 +44,7 @@ export function SiteNav({
       {/* Desktop nav */}
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <div className="bg-[#3A2F25]/20 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 lg:px-8 lg:py-4 shadow-2xl">
-          <ul className="flex gap-4 lg:gap-8 text-sm font-medium">
+          <ul className="flex items-center gap-4 lg:gap-8 text-sm font-medium">
             {sections.map((section) => (
               <li key={section.id}>
                 <a
@@ -60,6 +60,14 @@ export function SiteNav({
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="https://admin.anchoraccountability.com"
+                className="py-2 px-4 rounded-full border border-white/30 transition-all duration-300 whitespace-nowrap text-white/80 hover:text-white hover:bg-white/10"
+              >
+                Admin Login
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -207,12 +215,12 @@ export function SiteNav({
                     })}
                   </ul>
 
-                  {/* Download button */}
+                  {/* Action buttons */}
                   <motion.div
-                    className="mt-3 px-2 pb-1"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
+                    className="mt-3 px-2 pb-1 space-y-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                     transition={{
                       delay: 0.15 + sections.length * 0.05,
                       duration: 0.3,
@@ -228,6 +236,13 @@ export function SiteNav({
                     >
                       Download Now
                     </Link>
+                    <a
+                      href="https://admin.anchoraccountability.com"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center justify-center rounded-full border border-white/30 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10 active:scale-95"
+                    >
+                      Admin Login
+                    </a>
                   </motion.div>
                 </motion.div>
               )}
