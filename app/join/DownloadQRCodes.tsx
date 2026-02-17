@@ -18,6 +18,16 @@ function AndroidIcon() {
   );
 }
 
+export function OrgQRCode({ url }: { url: string }) {
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <div className="rounded-xl bg-white p-3 shadow-sm border border-gray-100">
+        <QRCodeSVG value={url} size={200} />
+      </div>
+    </div>
+  );
+}
+
 export function DownloadQRCodes({
   appStoreUrl,
   playStoreUrl,
