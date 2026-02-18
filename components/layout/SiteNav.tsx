@@ -6,9 +6,11 @@ import { AnimatePresence, motion } from "framer-motion";
 export function SiteNav({
   active,
   sections,
+  primaryCTA = { label: "Download Now", href: "/join" },
 }: {
   active: string;
   sections: { id: string; label: string }[];
+  primaryCTA?: { label: string; href: string };
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -230,11 +232,11 @@ export function SiteNav({
                     }}
                   >
                     <Link
-                      href="/join"
+                      href={primaryCTA.href}
                       onClick={() => setOpen(false)}
                       className="flex items-center justify-center rounded-full bg-white px-4 py-3 text-sm font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 active:scale-95"
                     >
-                      Download Now
+                      {primaryCTA.label}
                     </Link>
                     <a
                       href="https://admin.anchoraccountability.com"

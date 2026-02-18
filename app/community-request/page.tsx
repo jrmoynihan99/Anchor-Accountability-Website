@@ -59,7 +59,7 @@ export default function CommunityRequest() {
                 >
                   <input
                     name="name"
-                    placeholder="Your Name"
+                    placeholder="Your Name / Organization Name"
                     required
                     className="w-full rounded-xl bg-white/20 px-4 py-3 text-white placeholder-white/60 outline-none focus:ring-2 focus:ring-white"
                   />

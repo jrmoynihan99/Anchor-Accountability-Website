@@ -287,46 +287,28 @@ export default function Home() {
       </section>*/}
 
       {/* For Churches & Communities Section */}
-      <section id="communities" className="px-6 py-20">
-        <MotionParallax range={25}>
-          <div className="mx-auto max-w-3xl text-center">
-            <MotionReveal direction="up">
-              <h2 className="mb-6 text-3xl md:text-4xl font-bold text-white">
-                For Churches & Communities
-              </h2>
-            </MotionReveal>
-            <MotionReveal direction="up" delay={100}>
-              <p className="mb-8 text-lg leading-relaxed text-white/80">
-                Want to offer Anchor to your church, ministry, or audience? We
-                can set up a private community where your people can support
-                each other in a trusted environment, with 100% anonymity.
-              </p>
-            </MotionReveal>
-
-            <MotionReveal direction="up" delay={150}>
-              <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <a
-                  href="/community-request"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
-                >
-                  Set Up Your Community
-                </a>
-                <a
-                  href="https://admin.anchoraccountability.com"
-                  className="inline-flex items-center justify-center rounded-full border border-white/70 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10"
-                >
-                  Admin Login
-                </a>
-              </div>
-            </MotionReveal>
-
-            <MotionReveal direction="up" delay={200}>
-              <p className="mt-6 text-sm text-white/60">
-                Used by 300+ people across multiple church communities
-              </p>
-            </MotionReveal>
+      <section id="communities" className="px-6 py-16">
+        <MotionReveal direction="up">
+          <div className="mx-auto max-w-2xl text-center bg-white/5 rounded-3xl p-10 border border-white/10">
+            <p className="text-white/60 text-sm font-semibold uppercase tracking-widest mb-3">
+              For Churches & Ministries
+            </p>
+            <h2 className="mb-4 text-2xl md:text-3xl font-bold text-white">
+              Are you a pastor or ministry leader?
+            </h2>
+            <p className="mb-6 text-white/70 leading-relaxed">
+              Anchor can be set up as a private community for your church —
+              free, zero effort, fully anonymous. We have a dedicated page with
+              everything you need to know.
+            </p>
+            <Link
+              href="/churches"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
+            >
+              Learn More for Churches →
+            </Link>
           </div>
-        </MotionParallax>
+        </MotionReveal>
       </section>
 
       {/* FAQ Section */}
