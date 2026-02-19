@@ -2,34 +2,26 @@
 import { useEffect, useState } from "react";
 
 export function useActiveSection(sectionIds: string[]) {
-  const [active, setActive] = useState(sectionIds[0] || "hero");
+  const [active, setActive] = useState(sectionIds[0] || "");
 
   useEffect(() => {
     function onScroll() {
-      let closestId = sectionIds[0] || "hero";
-      let minDistance = Infinity;
+      // The active section is the last one whose top has crossed the threshold.
+      // This correctly handles tall sections: once you scroll past a section's
+      // top it stays active until the NEXT section's top crosses the threshold.
+      const THRESHOLD = 150;
+      let activeId = sectionIds[0] || "";
 
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-
-        // Skip sections that are completely above the viewport
-        if (rect.bottom < 80) continue;
-
-        const distance = Math.abs(rect.top - 100);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestId = id;
+        if (rect.top <= THRESHOLD) {
+          activeId = id;
         }
       }
 
-      // Bottom-of-page: force last section as active
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 10) {
-        closestId = sectionIds[sectionIds.length - 1] || closestId;
-      }
-
-      setActive(closestId);
+      setActive(activeId);
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });

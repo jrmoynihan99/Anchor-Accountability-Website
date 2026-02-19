@@ -31,6 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Disable browser scroll restoration so back/forward nav always loads at top */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "history.scrollRestoration = 'manual'",
+          }}
+        />
         {children}
       </body>
     </html>

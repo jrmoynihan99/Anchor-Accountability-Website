@@ -301,12 +301,12 @@ export default function Home() {
               free, zero effort, fully anonymous. We have a dedicated page with
               everything you need to know.
             </p>
-            <Link
+            <a
               href="/churches"
               className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
             >
               Learn More for Churches →
-            </Link>
+            </a>
           </div>
         </MotionReveal>
       </section>
