@@ -63,6 +63,14 @@ export function SiteNav({
               </li>
             ))}
             <li>
+              <Link
+                href={primaryCTA.href}
+                className="py-2 px-4 rounded-full bg-white text-[#3A2F25] font-semibold text-sm transition-all duration-300 whitespace-nowrap hover:bg-white/90 hover:scale-105 shadow-md"
+              >
+                {primaryCTA.label}
+              </Link>
+            </li>
+            <li>
               <a
                 href="https://admin.anchoraccountability.com"
                 className="py-2 px-4 rounded-full border border-white/30 transition-all duration-300 whitespace-nowrap text-white/80 hover:text-white hover:bg-white/10"

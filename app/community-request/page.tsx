@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { MotionReveal } from "@/components/animations/MotionReveal";
-import { useActiveSection } from "@/hooks/useActiveSection";
 import { CheckCircle } from "lucide-react";
 
 export default function CommunityRequest() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -41,14 +41,15 @@ export default function CommunityRequest() {
             <>
               <MotionReveal direction="up">
                 <h1 className="text-4xl font-bold text-white text-center mb-6">
-                  Request a Community
+                  Reach Out to Learn More!
                 </h1>
               </MotionReveal>
 
               <MotionReveal direction="up" delay={100}>
                 <p className="text-white/80 text-center mb-12">
-                  Reach out to tell me about your church or community and I'll
-                  reach out to help set it up!
+                  Curious to learn more, or ready to set up your own private
+                  instance of Anchor? Shoot me an email and I'll reply as soon
+                  as possible! Grateful to have you here.
                 </p>
               </MotionReveal>
 
@@ -100,8 +101,7 @@ export default function CommunityRequest() {
                 </h2>
 
                 <p className="text-white/80 mb-8 max-w-md">
-                  Thanks for reaching out. I'll contact you soon about setting
-                  up your community.
+                  Thanks for reaching out. I'll be in touch as soon as possible!
                 </p>
 
                 <button
@@ -113,12 +113,12 @@ export default function CommunityRequest() {
               </div>
             </MotionReveal>
           )}
-          <Link
-            href="/"
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/30 transition"
+          <button
+            onClick={() => router.back()}
+            className="mt-8 cursor-pointer inline-flex items-center justify-center rounded-full bg-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/30 transition"
           >
-            &larr; Back to home
-          </Link>
+            &larr; Back
+          </button>
         </div>
       </section>
     </div>
