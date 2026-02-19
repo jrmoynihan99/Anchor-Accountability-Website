@@ -15,8 +15,8 @@ export function FinalCtaSection() {
         </MotionReveal>
         <MotionReveal direction="up" delay={100}>
           <p className="mb-8 text-lg text-white/80 max-w-xl mx-auto">
-            Setting up your community is free, takes minutes, and requires
-            zero technical effort on your end.
+            Setting up your community is free, takes minutes, and requires zero
+            technical effort on your end.
           </p>
         </MotionReveal>
         <MotionReveal direction="up" delay={150}>
@@ -24,13 +24,13 @@ export function FinalCtaSection() {
             href="/community-request"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
           >
-            Request Your Community — Free
+            Request Your Community
             <ArrowRight className="w-4 h-4" />
           </Link>
         </MotionReveal>
         <MotionReveal direction="up" delay={200}>
-          <p className="mt-6 text-sm text-white/50">
-            No credit card. No commitment. No limits on community size.
+          <p className="mt-6 text-sm text-white/80">
+            Anchor is currently 100% FREE for churches
           </p>
         </MotionReveal>
       </MotionParallax>

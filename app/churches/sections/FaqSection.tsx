@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "Where is it available?",
-    a: "Anchor is available on both iOS and Android. Your custom join link & WR code handles both platforms automatically.",
+    a: "Anchor is available on both iOS and Android. Your custom join link & QR code handles both platforms automatically.",
   },
 ];
 

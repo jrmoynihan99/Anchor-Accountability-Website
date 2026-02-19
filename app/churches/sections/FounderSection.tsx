@@ -46,18 +46,18 @@ export function FounderSection() {
                 <div className="flex-1 flex flex-col justify-center space-y-5 text-center lg:text-left">
                   <p className="text-lg text-white/80 leading-relaxed">
                     I found faith in 2024, and God has been freeing me from
-                    pornography — a battle I fought alone in silence for years
-                    before I knew Him.
+                    pornography & lust since — a battle I fought alone in
+                    silence for years before I knew Him.
                   </p>
                   <p className="text-lg text-white/80 leading-relaxed">
-                    I built Anchor because it&apos;s something I wish I had.
-                    Just a place to reach out anonymously in a moment of
-                    temptation, without the shame of someone knowing who I was.
+                    I built Anchor because it&apos;s something I wish I had. A
+                    place to reach out anonymously in a moment of temptation and
+                    isolation, without the shame of someone knowing who I was.
                   </p>
                   <p className="text-lg text-white/80 leading-relaxed">
-                    There&apos;s so many Christians out there struggling in
-                    silence, and I hope Anchor can help make a dent in this
-                    struggle that is so common to man.
+                    There&apos;s so many people out there struggling in silence,
+                    and I hope Anchor can help make a dent in this battle that
+                    is so common to people everywhere.
                   </p>
                 </div>
               </div>

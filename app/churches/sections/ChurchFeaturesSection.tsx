@@ -16,7 +16,7 @@ const CHURCH_FEATURES = [
     id: "dashboard",
     title: "See how your community is engaging",
     desc: "Your admin dashboard gives you anonymized analytics — reach-outs sent, response rates, how many members are forming accountability partnerships. You see the impact without ever seeing individual data.",
-    visualType: "browser" as const,
+    visualType: "slide" as const,
   },
   {
     id: "qr",
@@ -37,61 +37,6 @@ const QR_PATTERN = [
   1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0,
   1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1,
 ];
-
-function BrowserMockup() {
-  return (
-    <div className="rounded-[2rem] overflow-hidden bg-white/5 shadow-2xl border-2 border-white/20 p-1 w-full">
-      <div className="bg-[#1a1410] rounded-[1.75rem] overflow-hidden">
-        {/* Browser chrome */}
-        <div className="bg-[#231d16] border-b border-white/10 px-3 py-2 flex items-center gap-2.5">
-          <div className="flex gap-1.5 flex-shrink-0">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-400/50" />
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/50" />
-            <div className="w-2.5 h-2.5 rounded-full bg-green-400/50" />
-          </div>
-          <div className="flex-1 bg-white/8 rounded-md h-5 flex items-center px-2">
-            <div className="h-1.5 w-28 bg-white/20 rounded-full" />
-          </div>
-        </div>
-        {/* Dashboard content */}
-        <div className="p-3 flex flex-col gap-2.5">
-          <div className="flex items-center justify-between">
-            <div className="h-2.5 w-20 bg-white/30 rounded-full" />
-            <div className="h-2.5 w-10 bg-white/15 rounded-full" />
-          </div>
-          <div className="grid grid-cols-3 gap-1.5">
-            {["Users", "Reach-Outs", "Response"].map((label) => (
-              <div key={label} className="bg-white/10 rounded-lg p-2">
-                <div className="h-4 w-7 bg-white/40 rounded mb-1" />
-                <div className="h-1.5 w-9 bg-white/20 rounded-full" />
-              </div>
-            ))}
-          </div>
-          <div className="bg-white/5 rounded-lg p-2 flex items-end gap-1 h-24">
-            {[40, 65, 45, 80, 55, 90, 70, 60].map((h, i) => (
-              <div
-                key={i}
-                className="flex-1 bg-white/30 rounded-t-sm"
-                style={{ height: `${h}%` }}
-              />
-            ))}
-          </div>
-          <div className="space-y-1.5">
-            {[80, 60, 70].map((w, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-white/30 flex-shrink-0" />
-                <div
-                  className="h-1.5 bg-white/15 rounded-full"
-                  style={{ width: `${w}%` }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function SlideMockup() {
   return (
@@ -165,7 +110,7 @@ function FeatureVisual({
 }) {
   if (feature.visualType === "phone-video") {
     return (
-      <div className="w-[220px] mx-auto">
+      <div className="w-[270px] mx-auto">
         <PhoneMockup
           video="/assets/videos/anchor-sos.mp4"
           poster="/assets/videos/anchor-sos.jpg"
@@ -174,7 +119,6 @@ function FeatureVisual({
       </div>
     );
   }
-  if (feature.visualType === "browser") return <BrowserMockup />;
   if (feature.visualType === "slide") return <SlideMockup />;
   return <LaunchGridMockup />;
 }
@@ -207,7 +151,7 @@ export function ChurchFeaturesSection() {
 
   return (
     <section className="bg-white/10 px-6 py-20">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <MotionReveal direction="up">
           <h2 className="mb-4 text-center text-3xl md:text-4xl font-bold text-white">
             What your church gets
@@ -223,7 +167,7 @@ export function ChurchFeaturesSection() {
           {/* Sticky visual — desktop only */}
           {/* Outer div stretches to full content height so sticky doesn't bottom out early */}
           <div
-            className="hidden lg:block flex-shrink-0 w-[500px]"
+            className="hidden lg:block flex-shrink-0 w-[600px]"
             style={{ alignSelf: "stretch" }}
           >
             <div
@@ -261,7 +205,7 @@ export function ChurchFeaturesSection() {
           </div>
 
           {/* Scrollable feature descriptions */}
-          <div className="flex-1">
+          <div className="flex-1 pb-[15vh]">
             {CHURCH_FEATURES.map((feature, i) => (
               <div
                 key={feature.id}
@@ -296,12 +240,12 @@ export function ChurchFeaturesSection() {
 
         {/* Bottom callouts */}
         <MotionReveal direction="up">
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/15 pt-12">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/15 pt-10">
             {[
               {
                 icon: Heart,
-                label: "Completely free",
-                desc: "No credit card. No limits. No subscription.",
+                label: "Free for churches",
+                desc: "Anchor is currently being offered 100% free for churches — no credit card, no limits, no strings attached.",
               },
               {
                 icon: CheckCircle,
@@ -309,11 +253,11 @@ export function ChurchFeaturesSection() {
                 desc: "Set it up once. Anchor handles moderation, crisis detection, and keeps things safe automatically.",
               },
             ].map((item) => (
-              <div key={item.label} className="flex items-start gap-3">
-                <item.icon className="w-5 h-5 text-white/50 flex-shrink-0 mt-0.5" />
+              <div key={item.label} className="bg-white/5 rounded-2xl p-6 border border-white/10 flex items-start gap-4">
+                <item.icon className="w-6 h-6 text-white/60 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-white font-medium text-sm">{item.label}</p>
-                  <p className="text-white/50 text-sm">{item.desc}</p>
+                  <p className="text-white font-semibold mb-1">{item.label}</p>
+                  <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}

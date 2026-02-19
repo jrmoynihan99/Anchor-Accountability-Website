@@ -73,7 +73,7 @@ export function HowItWorksSection() {
                       They reach out. Anonymously.
                     </h3>
                   </div>
-                  <p className="text-lg text-white/70 leading-relaxed max-w-xl">
+                  <p className="text-lg text-white/70 leading-relaxed">
                     When someone is struggling — in temptation, after a fall, or
                     just carrying the weight — they can send an anonymous
                     reach-out to your community with one tap. No name. No
@@ -102,7 +102,7 @@ export function HowItWorksSection() {
                       The community responds.
                     </h3>
                   </div>
-                  <p className="text-lg text-white/70 leading-relaxed max-w-xl">
+                  <p className="text-lg text-white/70 leading-relaxed">
                     Others in your church respond with scripture, prayer, and
                     encouragement. The original user is pulled out of isolation
                     by their peers, everyone stays anonymous.
@@ -130,7 +130,7 @@ export function HowItWorksSection() {
                       Deeper accountability forms.
                     </h3>
                   </div>
-                  <p className="text-lg text-white/70 leading-relaxed max-w-xl">
+                  <p className="text-lg text-white/70 leading-relaxed">
                     Users can opt to continue the conversation with those who
                     encouraged them, and also invite users to be their
                     accountability partners. All without ever losing the
@@ -166,8 +166,8 @@ export function HowItWorksSection() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="mt-4 w-[250px]">
-                      <div className="flex items-center gap-2 mb-1.5">
+                    <div className="mt-4 w-[250px] text-center">
+                      <div className="flex items-center justify-center gap-2 mb-1.5">
                         <feature.icon className="w-4 h-4 text-white/60 flex-shrink-0" />
                         <p className="text-white font-semibold text-s">
                           {feature.title}

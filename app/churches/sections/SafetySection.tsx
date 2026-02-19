@@ -161,8 +161,8 @@ export function SafetySection() {
                   </div>
                   <p className="text-white/70 leading-relaxed">
                     Every user can block and report on any interaction, at any
-                    time. Reports come directly to me personally, and I handle
-                    them — including disabling accounts when needed.
+                    time. Reports come directly to the Anchor team actively
+                    monitoring for app abuse.
                   </p>
                 </div>
               </MotionReveal>
@@ -175,9 +175,9 @@ export function SafetySection() {
                     </h3>
                   </div>
                   <p className="text-white/70 leading-relaxed">
-                    If it ever feels too strict or too loose for your specific
-                    community, just reach out. Settings can be adjusted to allow
-                    or disallow for specific things.
+                    Moderation can be adjusted to allow or disallow for specific
+                    things, creating the perfect balance of vulnerability and
+                    safety for your community.
                   </p>
                 </div>
               </MotionReveal>
