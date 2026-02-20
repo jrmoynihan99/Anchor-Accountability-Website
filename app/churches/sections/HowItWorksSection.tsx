@@ -147,11 +147,15 @@ export function HowItWorksSection() {
               <p className="text-sm font-semibold uppercase tracking-widest text-white/40 mb-8 text-center">
                 Also included
               </p>
-              <div className="grid grid-cols-3 gap-6">
-                {BONUS_FEATURES.map((feature) => (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {BONUS_FEATURES.map((feature, i) => (
                   <div
                     key={feature.title}
-                    className="flex flex-col items-center"
+                    className={`flex flex-col items-center ${
+                      i === BONUS_FEATURES.length - 1
+                        ? "col-span-2 md:col-span-1"
+                        : ""
+                    }`}
                   >
                     {/* Phone-shaped image frame */}
                     <div
