@@ -38,34 +38,14 @@ const CHURCH_FEATURES = [
   },
 ];
 
-const LAUNCH_SLIDES = [
-  "Intro slide",
-  "The problem",
-  "What is Anchor?",
-  "How to join",
-];
-
 function LaunchGridMockup() {
   return (
-    <div className="rounded-[2rem] overflow-hidden bg-white/5 shadow-2xl border-2 border-white/20 p-3 w-full">
-      <div className="grid grid-cols-2 gap-2 w-full">
-        {LAUNCH_SLIDES.map((label) => (
-          <div key={label} className="flex flex-col">
-            <div
-              className="bg-[#1a1410] rounded-t-lg border border-white/10 border-b-0 flex items-center justify-center"
-              style={{ aspectRatio: "16 / 9" }}
-            >
-              {/* Empty — user will add imagery here */}
-              <div className="space-y-1.5 w-full px-3">
-                <div className="h-1.5 bg-white/15 rounded-full w-3/4 mx-auto" />
-                <div className="h-1 bg-white/8 rounded-full w-1/2 mx-auto" />
-              </div>
-            </div>
-            <div className="bg-[#231d16] rounded-b-lg border border-white/10 border-t-0 px-2 py-1">
-              <p className="text-white/30 text-[9px] font-medium">{label}</p>
-            </div>
-          </div>
-        ))}
+    <div className="rounded-[2rem] overflow-hidden bg-white/5 shadow-2xl border-2 border-white/20 p-12 w-full max-w-3xl mx-auto">
+      <div className="flex flex-col items-center justify-center" style={{ aspectRatio: "16 / 9" }}>
+        <div className="text-center">
+          <p className="text-6xl md:text-7xl font-bold text-white/10 mb-4">Coming Soon</p>
+          <p className="text-white/40 text-lg">Launch resources in development</p>
+        </div>
       </div>
     </div>
   );

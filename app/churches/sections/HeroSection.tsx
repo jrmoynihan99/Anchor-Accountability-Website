@@ -90,7 +90,7 @@ export function HeroSection() {
 
           <MotionReveal direction="up" delay={300}>
             <p className="mt-4 text-sm text-white/50">
-              No credit card. No commitment. No limits on community size.
+              100% Free. No commitment, no limits on community size. size.
             </p>
           </MotionReveal>
         </div>

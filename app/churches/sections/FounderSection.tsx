@@ -57,7 +57,8 @@ export function FounderSection() {
                   <p className="text-lg text-white/80 leading-relaxed">
                     There&apos;s so many people out there struggling in silence,
                     and I hope Anchor can help make a dent in this battle that
-                    is so common to people everywhere.
+                    is so common to people everywhere. Any questions, don't
+                    hesitate to reach out!
                   </p>
                 </div>
               </div>

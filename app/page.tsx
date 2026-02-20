@@ -44,17 +44,16 @@ const FEATURES = [
   },
   {
     icon: HandHeart,
-    title: "Prayer Requests",
-    description:
-      "Share prayer needs anonymously and receive support from your community.",
+    title: "Guided Prayers",
+    description: "Daily prayers that help you to refocus on what matters.",
     video: "/assets/videos/anchor-prayer.mp4",
     poster: "/assets/videos/anchor-prayer.jpg",
   },
   {
     icon: Users,
-    title: "Community Feed",
+    title: "Community Posts",
     description:
-      "See encouragements and victories from others in your community. You're not alone.",
+      "Create and view testimonies, questions, and victories from others in your community.",
     video: "/assets/videos/anchor-community.mp4",
     poster: "/assets/videos/anchor-community.jpg",
   },
@@ -110,9 +109,8 @@ export default function Home() {
             </MotionReveal>
             <MotionReveal direction="up" delay={200}>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/80">
-                An anonymous Christian accountability app that helps you
-                overcome porn and lust. Connect with others in your church or
-                community who understand the struggle.
+                An anonymous accountability app that helps you overcome porn and
+                lust. Connect with others who understand the struggle.
               </p>
             </MotionReveal>
 
@@ -131,7 +129,9 @@ export default function Home() {
             </MotionReveal>
 
             <MotionReveal direction="up" delay={300}>
-              <p className="mt-4 text-sm text-white/60">Free • iOS & Android</p>
+              <p className="mt-4 text-sm text-white/60">
+                100% Free • iOS & Android
+              </p>
             </MotionReveal>
           </div>
 
@@ -197,7 +197,7 @@ export default function Home() {
                 {
                   num: 3,
                   title: "Build Accountability",
-                  desc: "When you're ready, form private accountability partnerships with people you trust. Move from anonymous support to deeper, ongoing accountability relationships.",
+                  desc: "When you're ready, form private accountability partnerships with people you trust. Move from anonymous support to (still anonymous) deeper, ongoing accountability relationships.",
                   video: "/assets/videos/anchor-messages.mp4",
                   poster: "/assets/videos/anchor-messages.jpg",
                   icon: Users,
@@ -241,7 +241,7 @@ export default function Home() {
         </MotionParallax>
       </section>
 
-      {/* Features Section 
+      {/* Features Section */}
       <section id="features" className="px-6 py-20">
         <MotionParallax range={25}>
           <div className="mx-auto max-w-7xl">
@@ -259,7 +259,11 @@ export default function Home() {
             <div className="grid gap-8 md:grid-cols-2">
               {FEATURES.map((feature, i) => (
                 <MotionReveal key={feature.title} direction="up" delay={i * 80}>
-                  <div className="flex flex-col sm:flex-row items-center gap-6 bg-white/5 rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-colors">
+                  <div
+                    className={`flex flex-col items-center gap-6 bg-white/5 rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-colors ${
+                      i >= 2 ? "sm:flex-row-reverse" : "sm:flex-row"
+                    }`}
+                  >
                     <div className="flex-shrink-0 w-[250px]">
                       <PhoneMockup
                         video={feature.video}
@@ -267,8 +271,12 @@ export default function Home() {
                         alt={feature.title}
                       />
                     </div>
-                    <div className="flex-1 text-center sm:text-left">
-                      <div className="flex items-center justify-center sm:justify-start gap-3 mb-3">
+                    <div
+                      className={`flex-1 text-center ${i >= 2 ? "sm:text-right" : "sm:text-left"}`}
+                    >
+                      <div
+                        className={`flex items-center justify-center gap-3 mb-3 ${i >= 2 ? "sm:justify-end" : "sm:justify-start"}`}
+                      >
                         <feature.icon className="w-6 h-6 text-white" />
                         <h3 className="text-xl font-semibold text-white">
                           {feature.title}
@@ -284,10 +292,10 @@ export default function Home() {
             </div>
           </div>
         </MotionParallax>
-      </section>*/}
+      </section>
 
       {/* For Churches & Communities Section */}
-      <section id="communities" className="px-6 py-16">
+      <section id="communities" className="bg-white/10 px-6 py-16">
         <MotionReveal direction="up">
           <div className="mx-auto max-w-2xl text-center bg-white/5 rounded-3xl p-10 border border-white/10">
             <p className="text-white/60 text-sm font-semibold uppercase tracking-widest mb-3">
@@ -312,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="bg-white/10 px-6 py-20">
+      <section id="faq" className="px-6 py-20">
         <MotionParallax range={30}>
           <div className="mx-auto max-w-3xl">
             <MotionReveal direction="up">
@@ -325,11 +333,11 @@ export default function Home() {
               {[
                 {
                   q: "Is it really anonymous?",
-                  a: "Yes. When you reach out for help, no one knows who you are. You choose when and with whom to reveal your identity.",
+                  a: "Yes. All interactions on this app are truly anonymous. Nobody knows who you are. You have a random user ID assigned to you, but there is never any tie to your identity.",
                 },
                 {
                   q: "How much does it cost?",
-                  a: "Anchor is completely free. No subscriptions, no hidden fees.",
+                  a: "Anchor is completely free. No subscriptions, no hidden fees, and NO features hidden behind a paywall.",
                 },
                 {
                   q: "What platforms is it available on?",
@@ -337,7 +345,7 @@ export default function Home() {
                 },
                 {
                   q: "How does the community scoping work?",
-                  a: "Each church or organization has its own private community. You only connect with people in your specific community, creating a trusted environment.",
+                  a: "Each church or organization has its own private community. During account creation, you can opt to join a private community, or join the public. You only connect with people in your specific community, creating a trusted environment.",
                 },
               ].map((faq, i) => (
                 <MotionReveal key={i} direction="up" delay={i * 80}>
@@ -355,7 +363,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="px-6 py-20 text-center">
+      <section className="bg-white/10 px-6 py-20 text-center">
         <MotionParallax range={20}>
           <MotionReveal direction="up">
             <h2 className="mb-6 text-3xl md:text-4xl font-bold text-white">
@@ -379,7 +387,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white/10 border-t border-white/20 px-6 py-8">
+      <footer className="border-t border-white/20 px-6 py-8">
         <MotionReveal direction="up">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center text-sm text-white/60">
             <div className="flex flex-wrap justify-center gap-4">

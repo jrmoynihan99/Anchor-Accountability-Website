@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: "How long does it take to get set up?",
-    a: "Once you're' ready to launch, your private community on Anchor can be live in minutes! All that's left to do is share the word!",
+    a: "Once you're ready to launch, your private community on Anchor can be live in minutes! All that's left to do is share the word!",
   },
   {
     q: "Where is it available?",
