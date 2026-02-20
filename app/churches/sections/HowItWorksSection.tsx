@@ -170,7 +170,7 @@ export function HowItWorksSection() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="mt-4 w-[250px] text-center">
+                    <div className="mt-4 text-center">
                       <div className="flex items-center justify-center gap-2 mb-1.5">
                         <feature.icon className="w-4 h-4 text-white/60 flex-shrink-0" />
                         <p className="text-white font-semibold text-s">
