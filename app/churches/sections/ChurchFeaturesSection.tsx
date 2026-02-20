@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { PhoneMockup } from "@/components/ui/PhoneMockup";
 import { MotionReveal } from "@/components/animations/MotionReveal";
@@ -11,18 +12,23 @@ const CHURCH_FEATURES = [
     title: "Your own private community",
     desc: "Anchor isn't a shared platform — your members only interact with each other. Joining requires a pin you control, so it stays exactly who you intend it to be. Your people get the trust of a closed community with the safety of real anonymity.",
     visualType: "phone-video" as const,
+    video: "/assets/videos/anchor-sos.mp4",
+    poster: "/assets/videos/anchor-sos.jpg",
   },
   {
     id: "dashboard",
     title: "See how your community is engaging",
     desc: "Your admin dashboard gives you anonymized analytics — reach-outs sent, response rates, how many members are forming accountability partnerships. You see the impact without ever seeing individual data.",
-    visualType: "slide" as const,
+    visualType: "video" as const,
+    video: "/assets/videos/Analytics.mp4",
+    poster: "/assets/videos/Analytics.mp4",
   },
   {
     id: "qr",
     title: "One link. One QR code. You're live.",
     desc: "You get a custom join link and QR code for your church. Put it in your bulletin, on screen during a service, or in a small group. Scanning it downloads the app and drops someone directly into your community — bypassing the pin for seamless onboarding on iOS and Android.",
-    visualType: "slide" as const,
+    visualType: "image" as const,
+    image: "/assets/videos/QRCode.JPG",
   },
   {
     id: "launch",
@@ -31,44 +37,6 @@ const CHURCH_FEATURES = [
     visualType: "grid" as const,
   },
 ];
-
-// Deterministic QR-like pattern (no Math.random — avoids hydration mismatch)
-const QR_PATTERN = [
-  1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0,
-  1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1,
-];
-
-function SlideMockup() {
-  return (
-    <div className="rounded-[2rem] overflow-hidden bg-white/5 shadow-2xl border-2 border-white/20 p-1 w-full">
-      <div
-        className="bg-[#1a1410] rounded-[1.75rem] overflow-hidden flex flex-col items-center justify-center gap-3 p-6"
-        style={{ aspectRatio: "16 / 9" }}
-      >
-        <div className="h-2 w-24 bg-white/20 rounded-full" />
-        <div className="h-1.5 w-16 bg-white/12 rounded-full" />
-        <div className="bg-white rounded-xl p-3 shadow-lg">
-          <div
-            className="grid gap-0.5"
-            style={{ gridTemplateColumns: "repeat(7, 1fr)" }}
-          >
-            {QR_PATTERN.map((cell, i) => (
-              <div
-                key={i}
-                className="w-3 h-3 rounded-[2px]"
-                style={{ backgroundColor: cell ? "#3A2F25" : "transparent" }}
-              />
-            ))}
-          </div>
-          <p className="text-[#3A2F25]/50 text-[6px] text-center mt-1.5 font-medium">
-            yourchurch.anchoraccountability.com
-          </p>
-        </div>
-        <div className="h-1.5 w-20 bg-white/15 rounded-full" />
-      </div>
-    </div>
-  );
-}
 
 const LAUNCH_SLIDES = [
   "Intro slide",
@@ -112,14 +80,45 @@ function FeatureVisual({
     return (
       <div className="w-[270px] mx-auto">
         <PhoneMockup
-          video="/assets/videos/anchor-sos.mp4"
-          poster="/assets/videos/anchor-sos.jpg"
-          alt="Private community join flow"
+          video={feature.video!}
+          poster={feature.poster!}
+          alt={feature.title}
         />
       </div>
     );
   }
-  if (feature.visualType === "slide") return <SlideMockup />;
+  if (feature.visualType === "video") {
+    return (
+      <div className="rounded-[2rem] overflow-hidden bg-white/5 shadow-2xl border-2 border-white/20 p-1 w-full max-w-3xl mx-auto">
+        <div className="rounded-[1.75rem] overflow-hidden">
+          <video
+            src={feature.video}
+            poster={feature.poster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ aspectRatio: "16 / 9", transform: "scale(1.05)" }}
+          />
+        </div>
+      </div>
+    );
+  }
+  if (feature.visualType === "image") {
+    return (
+      <div className="rounded-[2rem] overflow-hidden bg-white/5 shadow-2xl border-2 border-white/20 p-1 w-full max-w-3xl mx-auto">
+        <Image
+          src={feature.image!}
+          alt={feature.title}
+          width={1200}
+          height={800}
+          className="w-full h-auto rounded-[1.75rem]"
+        />
+      </div>
+    );
+  }
+  // grid type
   return <LaunchGridMockup />;
 }
 
@@ -253,11 +252,16 @@ export function ChurchFeaturesSection() {
                 desc: "Set it up once. Anchor handles moderation, crisis detection, and keeps things safe automatically.",
               },
             ].map((item) => (
-              <div key={item.label} className="bg-white/5 rounded-2xl p-6 border border-white/10 flex items-start gap-4">
+              <div
+                key={item.label}
+                className="bg-white/5 rounded-2xl p-6 border border-white/10 flex items-start gap-4"
+              >
                 <item.icon className="w-6 h-6 text-white/60 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-semibold mb-1">{item.label}</p>
-                  <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
+                  <p className="text-white/55 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
