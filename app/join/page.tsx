@@ -42,10 +42,17 @@ export default async function JoinPage({
     ? `https://anchoraccountability.com/join?org=${encodeURIComponent(org)}${params.name ? `&name=${encodeURIComponent(params.name as string)}` : ""}`
     : "";
 
-  // Auto-redirect only when org params are present (deferred deep linking)
+  // Auto-redirect mobile users to their app store.
+  // To DISABLE auto-redirect for no-param visits, remove the two `else if` blocks below.
   let redirectUrl = "";
   if (isAndroid && hasOrgParams) {
     redirectUrl = `${PLAY_STORE_URL}&referrer=org=${encodeURIComponent(org)}`;
+  } else if (isAndroid && !hasOrgParams) {
+    // Auto-redirect Android visitors (no org params) to Play Store
+    redirectUrl = PLAY_STORE_URL;
+  } else if (isIOS && !hasOrgParams) {
+    // Auto-redirect iOS visitors (no org params) to App Store
+    redirectUrl = APP_STORE_URL;
   }
 
   return (
