@@ -294,27 +294,42 @@ export default function Home() {
         </MotionParallax>
       </section>
 
-      {/* For Churches & Communities Section */}
+      {/* For Communities Section */}
       <section id="communities" className="bg-white/10 px-6 py-16">
         <MotionReveal direction="up">
           <div className="mx-auto max-w-2xl text-center bg-white/5 rounded-3xl p-10 border border-white/10">
             <p className="text-white/60 text-sm font-semibold uppercase tracking-widest mb-3">
-              For Churches & Ministries
+              For Communities
             </p>
             <h2 className="mb-4 text-2xl md:text-3xl font-bold text-white">
-              Are you a pastor or ministry leader?
+              Leading a community of men?
             </h2>
             <p className="mb-6 text-white/70 leading-relaxed">
-              Anchor can be set up as a private community for your church —
-              free, zero effort, fully anonymous. We have a dedicated page with
-              everything you need to know.
+              Anchor can be set up as a private community for your people —
+              free, zero effort, fully anonymous. Whether you lead a church,
+              run a ministry, or build an audience — we have a dedicated page
+              for you.
             </p>
-            <a
-              href="/churches"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
-            >
-              Learn More for Churches →
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="/churches"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
+              >
+                For Churches →
+              </a>
+              <a
+                href="/ministries"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
+              >
+                For Ministries →
+              </a>
+              <a
+                href="/creators"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#3A2F25] shadow-lg transition hover:bg-white/90 hover:scale-105"
+              >
+                For Creators →
+              </a>
+            </div>
           </div>
         </MotionReveal>
       </section>
