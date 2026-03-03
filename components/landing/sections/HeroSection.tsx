@@ -5,8 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { HeadshotProgress } from "@/components/ui/HeadshotProgress";
 import { MotionReveal } from "@/components/animations/MotionReveal";
 import { ArrowRight } from "lucide-react";
+import { LandingContent } from "../types";
 
-export function HeroSection() {
+export function HeroSection({ content }: { content: LandingContent["hero"] }) {
   const heroCTARef = React.useRef<HTMLDivElement>(null);
   const [showStickyButton, setShowStickyButton] = React.useState(false);
 
@@ -42,28 +43,19 @@ export function HeroSection() {
 
           <MotionReveal direction="up" delay={50}>
             <p className="text-white/60 text-sm font-semibold uppercase tracking-widest mb-4">
-              For Churches & Ministries
+              {content.subtitle}
             </p>
           </MotionReveal>
 
           <MotionReveal direction="up" delay={100}>
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-              Your people are struggling with lust in silence.
+              {content.heading}
             </h1>
           </MotionReveal>
 
-          {/*<MotionReveal direction="up" delay={150}>
-            <p className="mt-6 text-2xl md:text-3xl text-white/90">
-              Anchor gives them a way to reach out — anonymously.
-            </p>
-          </MotionReveal>*/}
-
           <MotionReveal direction="up" delay={200}>
             <p className="mt-6 text-lg text-white/75 max-w-2xl mx-auto leading-relaxed">
-              Anchor is a free app that gives the people in your church a safe,
-              private space to reach out anonymously in moments of temptation
-              and struggle — with zero shame, zero judgment, and zero effort to
-              set up.
+              {content.body}
             </p>
           </MotionReveal>
 
@@ -90,7 +82,7 @@ export function HeroSection() {
 
           <MotionReveal direction="up" delay={300}>
             <p className="mt-4 text-sm text-white/50">
-              100% Free. No commitment, no limits on community size. size.
+              100% Free. No commitment, no limits on community size.
             </p>
           </MotionReveal>
         </div>

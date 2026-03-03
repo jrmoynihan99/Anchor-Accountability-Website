@@ -3,8 +3,13 @@ import Link from "next/link";
 import { MotionParallax } from "@/components/animations/MotionParallax";
 import { MotionReveal } from "@/components/animations/MotionReveal";
 import { ArrowRight } from "lucide-react";
+import { LandingContent } from "../types";
 
-export function FinalCtaSection() {
+export function FinalCtaSection({
+  content,
+}: {
+  content: LandingContent["finalCta"];
+}) {
   return (
     <section className="px-6 py-20 text-center">
       <MotionParallax range={20}>
@@ -30,7 +35,7 @@ export function FinalCtaSection() {
         </MotionReveal>
         <MotionReveal direction="up" delay={200}>
           <p className="mt-6 text-sm text-white/80">
-            Anchor is currently 100% FREE for churches
+            {content.emphasis}
           </p>
         </MotionReveal>
       </MotionParallax>

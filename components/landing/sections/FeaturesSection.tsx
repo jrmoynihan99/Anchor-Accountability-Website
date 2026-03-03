@@ -5,38 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PhoneMockup } from "@/components/ui/PhoneMockup";
 import { MotionReveal } from "@/components/animations/MotionReveal";
 import { Heart, CheckCircle } from "lucide-react";
-
-const CHURCH_FEATURES = [
-  {
-    id: "private-instance",
-    title: "Your own private community",
-    desc: "Anchor isn't a shared platform — your members only interact with each other. Joining requires a pin you control, so it stays exactly who you intend it to be. Your people get the trust of a closed community with the safety of real anonymity.",
-    visualType: "phone-video" as const,
-    video: "/assets/videos/anchor-sos.mp4",
-    poster: "/assets/videos/anchor-sos.jpg",
-  },
-  {
-    id: "dashboard",
-    title: "See how your community is engaging",
-    desc: "Your admin dashboard gives you anonymized analytics — reach-outs sent, response rates, how many members are forming accountability partnerships. You see the impact without ever seeing individual data.",
-    visualType: "video" as const,
-    video: "/assets/videos/Analytics.mp4",
-    poster: "/assets/videos/Analytics.mp4",
-  },
-  {
-    id: "qr",
-    title: "One link. One QR code. You're live.",
-    desc: "You get a custom join link and QR code for your church. Put it in your bulletin, on screen during a service, or in a small group. Scanning it downloads the app and drops someone directly into your community — bypassing the pin for seamless onboarding on iOS and Android.",
-    visualType: "image" as const,
-    image: "/assets/videos/QRCode.JPG",
-  },
-  {
-    id: "launch",
-    title: "A launch playbook, ready to go",
-    desc: "You get templated visuals for sharing — slides, graphics, and your QR code — plus a step-by-step guide for getting people on the app. That means getting leadership bought in, introducing it to your congregation, and making sure it actually lands.",
-    visualType: "grid" as const,
-  },
-];
+import { LandingContent } from "../types";
 
 function LaunchGridMockup() {
   return (
@@ -51,11 +20,9 @@ function LaunchGridMockup() {
   );
 }
 
-function FeatureVisual({
-  feature,
-}: {
-  feature: (typeof CHURCH_FEATURES)[number];
-}) {
+type FeatureItem = LandingContent["features"]["items"][number];
+
+function FeatureVisual({ feature }: { feature: FeatureItem }) {
   if (feature.visualType === "phone-video") {
     return (
       <div className="w-[270px] mx-auto">
@@ -98,11 +65,16 @@ function FeatureVisual({
       </div>
     );
   }
-  // grid type
   return <LaunchGridMockup />;
 }
 
-export function ChurchFeaturesSection() {
+const CALLOUT_ICONS = [Heart, CheckCircle];
+
+export function FeaturesSection({
+  content,
+}: {
+  content: LandingContent["features"];
+}) {
   const [activeFeature, setActiveFeature] = React.useState(0);
   const featureRefs = React.useRef<(HTMLDivElement | null)[]>([]);
 
@@ -133,7 +105,7 @@ export function ChurchFeaturesSection() {
       <div className="mx-auto max-w-7xl">
         <MotionReveal direction="up">
           <h2 className="mb-4 text-center text-3xl md:text-4xl font-bold text-white">
-            What your church gets
+            {content.heading}
           </h2>
         </MotionReveal>
         <MotionReveal direction="up" delay={50}>
@@ -144,7 +116,6 @@ export function ChurchFeaturesSection() {
 
         <div className="relative flex gap-16 items-start">
           {/* Sticky visual — desktop only */}
-          {/* Outer div stretches to full content height so sticky doesn't bottom out early */}
           <div
             className="hidden lg:block flex-shrink-0 w-[600px]"
             style={{ alignSelf: "stretch" }}
@@ -166,12 +137,11 @@ export function ChurchFeaturesSection() {
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <FeatureVisual feature={CHURCH_FEATURES[activeFeature]} />
+                  <FeatureVisual feature={content.items[activeFeature]} />
                 </motion.div>
               </AnimatePresence>
-              {/* Progress indicator */}
               <div className="flex gap-2">
-                {CHURCH_FEATURES.map((_, i) => (
+                {content.items.map((_, i) => (
                   <div
                     key={i}
                     className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -185,7 +155,7 @@ export function ChurchFeaturesSection() {
 
           {/* Scrollable feature descriptions */}
           <div className="flex-1 pb-[15vh]">
-            {CHURCH_FEATURES.map((feature, i) => (
+            {content.items.map((feature, i) => (
               <div
                 key={feature.id}
                 ref={(el) => {
@@ -193,7 +163,6 @@ export function ChurchFeaturesSection() {
                 }}
                 className="min-h-[75vh] flex flex-col justify-center py-12"
               >
-                {/* Mobile visual */}
                 <div className="lg:hidden w-full max-w-xs mx-auto mb-8">
                   <FeatureVisual feature={feature} />
                 </div>
@@ -220,31 +189,23 @@ export function ChurchFeaturesSection() {
         {/* Bottom callouts */}
         <MotionReveal direction="up">
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/15 pt-10">
-            {[
-              {
-                icon: Heart,
-                label: "Free for churches",
-                desc: "Anchor is currently being offered 100% free for churches — no credit card, no limits, no strings attached.",
-              },
-              {
-                icon: CheckCircle,
-                label: "No ongoing management",
-                desc: "Set it up once. Anchor handles moderation, crisis detection, and keeps things safe automatically.",
-              },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-white/5 rounded-2xl p-6 border border-white/10 flex items-start gap-4"
-              >
-                <item.icon className="w-6 h-6 text-white/60 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-white font-semibold mb-1">{item.label}</p>
-                  <p className="text-white/55 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
+            {content.callouts.map((item, i) => {
+              const Icon = CALLOUT_ICONS[i] ?? Heart;
+              return (
+                <div
+                  key={item.label}
+                  className="bg-white/5 rounded-2xl p-6 border border-white/10 flex items-start gap-4"
+                >
+                  <Icon className="w-6 h-6 text-white/60 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-white font-semibold mb-1">{item.label}</p>
+                    <p className="text-white/55 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </MotionReveal>
       </div>

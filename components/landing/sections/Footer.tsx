@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { MotionReveal } from "@/components/animations/MotionReveal";
 
-export function ChurchesFooter() {
+export function Footer() {
   return (
     <footer className="bg-white/10 border-t border-white/20 px-6 py-8">
       <MotionReveal direction="up">

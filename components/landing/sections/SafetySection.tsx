@@ -10,6 +10,7 @@ import {
   Flag,
   SlidersHorizontal,
 } from "lucide-react";
+import { LandingContent } from "../types";
 
 function ModerationMockUI() {
   return (
@@ -17,7 +18,6 @@ function ModerationMockUI() {
       <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">
         Every message is reviewed
       </p>
-      {/* Approved */}
       <div className="bg-white/8 rounded-xl p-4 border border-white/10">
         <div className="flex items-start justify-between gap-3">
           <div className="space-y-1.5 flex-1">
@@ -33,7 +33,6 @@ function ModerationMockUI() {
           Approved — sent to community
         </p>
       </div>
-      {/* Rejected */}
       <div className="bg-white/8 rounded-xl p-4 border border-white/10 opacity-60">
         <div className="flex items-start justify-between gap-3">
           <div className="space-y-1.5 flex-1">
@@ -87,7 +86,11 @@ function CrisisMockUI() {
   );
 }
 
-export function SafetySection() {
+export function SafetySection({
+  content,
+}: {
+  content: LandingContent["safety"];
+}) {
   return (
     <section id="safety" className="px-6 py-20">
       <MotionParallax range={20}>
@@ -99,13 +102,11 @@ export function SafetySection() {
           </MotionReveal>
           <MotionReveal direction="up" delay={50}>
             <p className="mb-16 text-center text-lg text-white/70 max-w-2xl mx-auto">
-              Real, vulnerable conversations — in an environment that&apos;s
-              safe for everyone in your church.
+              {content.subheading}
             </p>
           </MotionReveal>
 
           <div className="space-y-16">
-            {/* Moderation */}
             <MotionReveal direction="up">
               <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
                 <div className="flex-shrink-0 w-full max-w-sm">
@@ -127,7 +128,6 @@ export function SafetySection() {
               </div>
             </MotionReveal>
 
-            {/* Crisis */}
             <MotionReveal direction="up">
               <div className="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16">
                 <div className="flex-shrink-0 w-full max-w-sm">
@@ -149,7 +149,6 @@ export function SafetySection() {
               </div>
             </MotionReveal>
 
-            {/* Block/report + tuning */}
             <div className="grid md:grid-cols-2 gap-6">
               <MotionReveal direction="up">
                 <div className="bg-white/5 rounded-2xl p-6 border border-white/10 h-full">

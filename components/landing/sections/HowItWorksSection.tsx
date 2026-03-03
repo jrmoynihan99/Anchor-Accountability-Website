@@ -11,32 +11,34 @@ import {
   BookOpen,
   HandHeart,
 } from "lucide-react";
+import { LandingContent } from "../types";
 
 const BONUS_FEATURES = [
   {
     icon: Flame,
     title: "Streak Tracking",
     desc: "Members track their days of freedom and celebrate milestones together.",
-    video: "/assets/videos/anchor-streak.mp4",
     poster: "/assets/videos/anchor-streak.jpg",
   },
   {
     icon: BookOpen,
     title: "Daily Devotional",
     desc: "A new verse every morning to strengthen their resolve and start the day grounded.",
-    video: "/assets/videos/anchor-prayer.mp4",
     poster: "/assets/videos/anchor-prayer.jpg",
   },
   {
     icon: HandHeart,
     title: "Community Posts",
     desc: "Members create community posts including questions, testimonies, and support.",
-    video: "/assets/videos/anchor-community.mp4",
     poster: "/assets/videos/anchor-community.jpg",
   },
 ];
 
-export function HowItWorksSection() {
+export function HowItWorksSection({
+  content,
+}: {
+  content: LandingContent["howItWorks"];
+}) {
   return (
     <section className="px-6 py-20">
       <MotionParallax range={25}>
@@ -48,8 +50,7 @@ export function HowItWorksSection() {
           </MotionReveal>
           <MotionReveal direction="up" delay={50}>
             <p className="mb-16 text-center text-lg text-white/70 max-w-2xl mx-auto">
-              An anonymous community inside your church where people can reach
-              out the moment they&apos;re struggling.
+              {content.subheading}
             </p>
           </MotionReveal>
 
@@ -103,9 +104,7 @@ export function HowItWorksSection() {
                     </h3>
                   </div>
                   <p className="text-lg text-white/70 leading-relaxed">
-                    Others in your church respond with scripture, prayer, and
-                    encouragement. The original user is pulled out of isolation
-                    by their peers, everyone stays anonymous.
+                    {content.step2Body}
                   </p>
                 </div>
               </div>
@@ -141,7 +140,7 @@ export function HowItWorksSection() {
             </MotionReveal>
           </div>
 
-          {/* Bonus features — horizontal scroll */}
+          {/* Bonus features */}
           <MotionReveal direction="up" delay={150}>
             <div className="mt-20 border-t border-white/15 pt-12">
               <p className="text-sm font-semibold uppercase tracking-widest text-white/40 mb-8 text-center">
@@ -157,7 +156,6 @@ export function HowItWorksSection() {
                         : ""
                     }`}
                   >
-                    {/* Phone-shaped image frame */}
                     <div
                       className="w-[150px] overflow-hidden rounded-[2.25rem] border-2 border-white/20 shadow-xl"
                       style={{ aspectRatio: "9 / 19.5" }}

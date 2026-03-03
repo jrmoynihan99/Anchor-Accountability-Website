@@ -28,7 +28,6 @@ export function FounderSection() {
           <MotionReveal direction="up">
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-start">
-                {/* Left: photo + name */}
                 <div className="flex flex-col items-center text-center flex-shrink-0">
                   <HeadshotProgress
                     size={200}
@@ -42,7 +41,6 @@ export function FounderSection() {
                   <p className="text-white/50 text-sm">Founder, Anchor</p>
                 </div>
 
-                {/* Right: text */}
                 <div className="flex-1 flex flex-col justify-center space-y-5 text-center lg:text-left">
                   <p className="text-lg text-white/80 leading-relaxed">
                     I found faith in 2024, and God has been freeing me from

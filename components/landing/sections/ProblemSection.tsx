@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { MotionParallax } from "@/components/animations/MotionParallax";
 import { MotionReveal } from "@/components/animations/MotionReveal";
+import { LandingContent } from "../types";
 
 const CYCLE_MS = 4500;
 
@@ -49,7 +50,11 @@ function CountUpNumber({ target }: { target: number }) {
   return <>{count}</>;
 }
 
-export function ProblemSection() {
+export function ProblemSection({
+  content,
+}: {
+  content: LandingContent["problem"];
+}) {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -83,19 +88,15 @@ export function ProblemSection() {
     <section className="bg-white/10 px-6 py-20">
       <MotionParallax range={20}>
         <div ref={sectionRef} className="mx-auto max-w-5xl">
-          {/* Heading — full width */}
           <MotionReveal direction="up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
               The struggle is real. The silence is louder.
             </h2>
           </MotionReveal>
 
-          {/* Two fixed columns — grid prevents layout shift when stat content changes */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 lg:items-center">
-            {/* Left: cycling stat */}
             <MotionReveal direction="up" delay={100}>
               <div>
-                {/* Fixed-height container prevents layout shift between stats */}
                 <div className="relative min-h-[200px] md:min-h-[200px]">
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -125,7 +126,6 @@ export function ProblemSection() {
                   </AnimatePresence>
                 </div>
 
-                {/* Progress dots */}
                 <div className="flex items-center gap-3 mt-2">
                   {STATS.map((_, i) => (
                     <button
@@ -160,19 +160,13 @@ export function ProblemSection() {
               </div>
             </MotionReveal>
 
-            {/* Right: paragraph — vertically centered by grid items-center */}
             <MotionReveal direction="up" delay={150}>
               <p className="text-lg text-white/75 leading-relaxed">
-                Porn is one of the most pervasive struggles among men in the
-                church — and one of the least talked about. The shame around it
-                is so heavy that most men will never raise their hand in a small
-                group, and they&apos;ll never bring it to a pastor. So they
-                carry it alone.
+                {content.paragraph}
               </p>
             </MotionReveal>
           </div>
 
-          {/* Introducing Anchor — full width, centered, below both columns */}
           <MotionReveal direction="up" delay={200}>
             <div className="border-t border-white/15 mt-12 pt-10 text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-white/40 mb-4">

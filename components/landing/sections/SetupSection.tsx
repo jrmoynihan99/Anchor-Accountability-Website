@@ -4,32 +4,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { MotionReveal } from "@/components/animations/MotionReveal";
 import { ArrowRight, MessageCircle, Rocket, KeyRound } from "lucide-react";
+import { LandingContent } from "../types";
 
-// Step activates at these delays (ms) after section becomes visible
 const STEP_DELAYS = [0, 480, 960];
+const STEP_ICONS = [MessageCircle, Rocket, KeyRound];
 
-const STEPS = [
-  {
-    num: 1,
-    icon: MessageCircle,
-    title: "Reach out and say hi",
-    desc: "Tell me a bit about your church — what you're hoping to offer your congregation, and any questions you have. I'll get back to you personally, usually within a day or two.",
-  },
-  {
-    num: 2,
-    icon: Rocket,
-    title: "Your community goes live",
-    desc: "Once you're ready, I'll add your church to the app. Your private community is created instantly — joinable only to your members during account creation, and pin-protected so it stays exactly who you intend it to be.",
-  },
-  {
-    num: 3,
-    icon: KeyRound,
-    title: "You get everything you need to launch",
-    desc: "Your admin login comes with your QR code for seamless pinless onboarding, your pin code, ready-to-use graphics and slides for sharing, and a short step-by-step playbook to help you introduce it to your congregation.",
-  },
-];
-
-export function SetupSection() {
+export function SetupSection({
+  content,
+}: {
+  content: LandingContent["setup"];
+}) {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = React.useState(false);
   const [activeSteps, setActiveSteps] = React.useState([false, false, false]);
@@ -63,6 +47,12 @@ export function SetupSection() {
     return () => timers.forEach(clearTimeout);
   }, [isVisible]);
 
+  const steps = content.steps.map((step, i) => ({
+    ...step,
+    num: i + 1,
+    icon: STEP_ICONS[i],
+  }));
+
   return (
     <section id="setup" className="bg-white/10 px-6 py-20">
       <div className="mx-auto max-w-5xl">
@@ -81,9 +71,8 @@ export function SetupSection() {
         <div ref={sectionRef}>
           {/* Desktop: horizontal 3-up with animated connector line */}
           <div className="hidden lg:block">
-            {/* Node row + connector: two separate segments so line never crosses through a node */}
             <div className="flex items-center w-full mb-6">
-              {STEPS.map((step, i) => (
+              {steps.map((step, i) => (
                 <React.Fragment key={step.num}>
                   <motion.div
                     className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full border-2 text-lg font-bold"
@@ -106,8 +95,7 @@ export function SetupSection() {
                     {step.num}
                   </motion.div>
 
-                  {/* Line segment between nodes — skip after last node */}
-                  {i < STEPS.length - 1 && (
+                  {i < steps.length - 1 && (
                     <div className="flex-1 relative h-0.5 bg-white/10 rounded-full overflow-hidden mx-2">
                       <motion.div
                         className="absolute inset-y-0 left-0 w-full bg-white/45 origin-left rounded-full"
@@ -125,9 +113,8 @@ export function SetupSection() {
               ))}
             </div>
 
-            {/* Cards */}
             <div className="grid grid-cols-3 gap-5">
-              {STEPS.map((step, i) => (
+              {steps.map((step, i) => (
                 <motion.div
                   key={step.num}
                   className="bg-white/5 rounded-2xl p-6 border border-white/10 flex flex-col"
@@ -148,7 +135,7 @@ export function SetupSection() {
 
           {/* Mobile: stacked cards */}
           <div className="lg:hidden space-y-4">
-            {STEPS.map((step, i) => (
+            {steps.map((step, i) => (
               <MotionReveal key={step.num} direction="up" delay={i * 80}>
                 <div className="flex gap-5 items-start bg-white/5 rounded-2xl p-6 border border-white/10">
                   <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white/20 text-lg font-bold text-white">
