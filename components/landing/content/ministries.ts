@@ -8,7 +8,7 @@ export const ministriesContent: LandingContent = {
   },
   problem: {
     paragraph:
-      "Porn is one of the most pervasive struggles among Christian men — and one of the least talked about. The shame around it is so heavy that most men will never open up about it — not in a group setting, not one-on-one, not even when they know help is available. So they carry it alone.",
+      "Porn is one of the most pervasive struggles among Christians — and one of the least talked about. The shame around it is so heavy that most people will never open up about it — not in a group setting, not one-on-one, not even when they know help is available. So they carry it alone.",
   },
   howItWorks: {
     subheading:

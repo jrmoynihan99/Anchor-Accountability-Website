@@ -17,6 +17,12 @@ const STATS = [
   },
   {
     prefix: "",
+    value: 40,
+    suffix: "%",
+    headline: "of Christian women admit to consuming pornography on some level",
+  },
+  {
+    prefix: "",
     value: 84,
     suffix: "%",
     headline: "of porn users say no one is helping them avoid pornography",

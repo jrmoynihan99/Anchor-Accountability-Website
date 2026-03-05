@@ -302,13 +302,13 @@ export default function Home() {
               For Communities
             </p>
             <h2 className="mb-4 text-2xl md:text-3xl font-bold text-white">
-              Leading a community of men?
+              Leading a community of Christians?
             </h2>
             <p className="mb-6 text-white/70 leading-relaxed">
               Anchor can be set up as a private community for your people —
-              free, zero effort, fully anonymous. Whether you lead a church,
-              run a ministry, or build an audience — we have a dedicated page
-              for you.
+              free, zero effort, fully anonymous. Whether you lead a church, run
+              a ministry, or build an audience — we have a dedicated page for
+              you.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a

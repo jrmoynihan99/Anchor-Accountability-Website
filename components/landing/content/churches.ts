@@ -8,7 +8,7 @@ export const churchesContent: LandingContent = {
   },
   problem: {
     paragraph:
-      "Porn is one of the most pervasive struggles among men in the church — and one of the least talked about. The shame around it is so heavy that most men will never raise their hand in a small group, and they'll never bring it to a pastor. So they carry it alone.",
+      "Porn is one of the most pervasive struggles among men & women in the church — and one of the least talked about. The shame around it is so heavy that most people will never raise their hand in a small group, and they'll never bring it to a pastor. So they carry it alone.",
   },
   howItWorks: {
     subheading:
