@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "Anchor <onboarding@resend.dev>", // you'll change this later
+      from: "Anchor <anchor@anchoraccountability.com>", // you'll change this later
       to: "jrmoynihan99@gmail.com",
       subject: `New Community Request from ${name}`,
       html: `
